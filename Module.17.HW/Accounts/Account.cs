@@ -1,14 +1,13 @@
 ﻿namespace Module._17.HW.Accounts;
 
-public class Account
+public abstract class Account
 {
     // тип учетной записи
-    public string Type { get; set; }
+    public string Type { get; protected set; }
 
     // баланс учетной записи
     public double Balance { get; set; }
 
     // процентная ставка
-    public double Interest { get; set; }
-  
+    public double Interest { get; protected set; }
 }

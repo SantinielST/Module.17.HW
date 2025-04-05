@@ -2,32 +2,14 @@
 
 namespace Module._17.HW;
 
-public class Calculator : ICalculateInterest
+/// <summary>
+/// Класс для подсчёта начислений на баланс клиента
+/// </summary>
+public static class Calculator
 {
-    private Account _account = new Account();
-
-    public Calculator(Account account)
+    // Метод начисления процентов на баланс клиента
+    public static void CalculateInterest(this Account account)
     {
-        _account = account;
-    }
-
-    public void BaseAccountCalculateInterest()
-    {
-        if (_account.Type == "Обычный")
-        {
-            _account.Interest = _account.Balance * 0.4;
-
-            if (_account.Balance < 1000)
-                _account.Interest -= _account.Balance * 0.2;
-
-            if (_account.Balance >= 1000)
-                _account.Interest -= _account.Balance * 0.4;
-        }
-    }
-
-    public void SalaryAccountCalculateInterest()
-    {
-        if (_account.Type == "Зарплатный")
-            _account.Interest = _account.Balance * 0.5;
+        account.Balance += account.Balance * account.Interest;
     }
 }
